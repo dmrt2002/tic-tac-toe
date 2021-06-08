@@ -1,12 +1,54 @@
 
 body {
-  background: url(tick5.jpg) ;
+  background: url(tic10.jpg) ;
   background-repeat: no-repeat;
-  height:  100%;
+  height: 100vh;
+  width: 100vw;
   background-size: cover;
   font-family: Montserrat, sans-serif;
 }
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+ font-family: "Open Sans",  Impact;
+}
+
+.area {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 3em;
+  color: rgb(19, 18, 18);
+  letter-spacing: .25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  animation: blur 3.75s ease-out infinite;
+  text-shadow: 0px 0px 5px rgb(46, 41, 41), 0px 0px 7px rgb(36, 33, 33);
+}
+
+@keyframes blur {
+  from {
+    text-shadow:0px 0px 10px #fff,
+      0px 0px 10px #fff, 
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 25px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #fff,
+      0px 0px 50px #8091a7,
+      0px 0px 150px #91a9c7,
+      0px 10px 100px #5b7da5,
+      0px 10px 100px #6d84a0,
+      0px 10px 100px #6d8fb9,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #6a8ab1,
+      0px -10px 100px #5f7ca0;
+  }
+}
 
 h1{
   font-size: 50px;
@@ -16,7 +58,7 @@ h1{
 }
 
 td {
-	border:  2px solid #333;
+	border:  5px solid rgb(250, 244, 244);
 	height:  100px;
 	width:  100px;
 	text-align:  center;
@@ -24,6 +66,7 @@ td {
 	font-family:  "Comic Sans MS", cursive, sans-serif;
 	font-size:  70px;
 	cursor: pointer;
+  color: white;
 }
 
 table {
@@ -52,24 +95,24 @@ table tr td:last-child {
 
 .endgame {
   display: none;
-  width: 200px;
-  top: 120px;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0,0,0, 0.8);
-  position: absolute;
-  left: 50%;
-  margin-left: -100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  position: fixed;
   text-align: center;
-  border-radius: 5px;
-  color: white;
+  color: red;
   font-size: 2em;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  flex-direction: column;
+  font-family: 'Courier New', monospace;
 }
 
 button {
-	font-size: 1rem;
+	font-size: 2rem;
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: .25em .5em;
     cursor: pointer;
 }
