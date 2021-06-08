@@ -14,25 +14,39 @@
 </head>
 
 <body>
+	<audio id="myAudio">
+		<source src="alert1.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+    </audio>
+	
+	<audio id="myAudio1">
+		<source src="gameover.wav" type="audio/mpeg">
+		Your browser does not support the audio element.
+    </audio>
 
+	<audio id="myAudio2">
+		<source src="restart.wav" type="audio/mpeg">
+		Your browser does not support the audio element.
+    </audio>
 
-	<h1>TIC TAC TOE</h1>
-
-	<table>
+      <br>
+	<div class="area">TIC TAC TOE</div>
+      <br>
+	<table style="align-content: center;">
 		<tr>
-			<td class="cell" id="0"></td>
-			<td class="cell" id="1"></td>
-			<td class="cell" id="2"></td>
+			<td class="cell"onclick="playAudio()" id="0"></td>
+			<td class="cell"onclick="playAudio()" id="1"></td>
+			<td class="cell"onclick="playAudio()" id="2"></td>
 		</tr>
 		<tr>
-			<td class="cell" id="3"></td>
-			<td class="cell" id="4"></td>
-			<td class="cell" id="5"></td>
+			<td class="cell"onclick="playAudio()" id="3"></td>
+			<td class="cell"onclick="playAudio()" id="4"></td>
+			<td class="cell"onclick="playAudio()" id="5"></td>
 		</tr>
 		<tr>
-			<td class="cell" id="6"></td>
-			<td class="cell" id="7"></td>
-			<td class="cell" id="8"></td>
+			<td class="cell"onclick="playAudio()" id="6"></td>
+			<td class="cell"onclick="playAudio()" id="7"></td>
+			<td class="cell"onclick="playAudio()" id="8"></td>
 		</tr>
 	</table>
 	<div class="endgame">
