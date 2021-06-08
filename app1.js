@@ -1,6 +1,9 @@
 var origBoard;
 const huPlayer = 'O';
 const aiPlayer = 'X';
+var x = document.getElementById("myAudio"); 
+var y = document.getElementById("myAudio1"); 
+var z = document.getElementById("myAudio2"); 
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -12,10 +15,14 @@ const winCombos = [
 	[6, 4, 2]
 ]
 
+function restart(){
+	z.play();
+}
 const cells = document.querySelectorAll('.cell');
 startGame();
 
 function startGame() {
+	restart();
 	document.querySelector(".endgame").style.display = "none";
 	origBoard = Array.from(Array(9).keys());
 	for (var i = 0; i < cells.length; i++) {
@@ -35,6 +42,11 @@ function turnClick(square) {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
+	/*if(player === huPlayer){
+		document.getElementById(squareId).style.color = "green";
+	}else{
+		document.getElementById(squareId).style.color = "red";
+	}*/
 	let gameWon = checkWin(origBoard, player)
 	if (gameWon) gameOver(gameWon)
 }
@@ -60,12 +72,16 @@ function gameOver(gameWon) {
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].removeEventListener('click', turnClick, false);
 	}
-	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose!");
 }
 
 function declareWinner(who) {
 	document.querySelector(".endgame").style.display = "block";
 	document.querySelector(".endgame .text").innerText = who;
+	function gameover(){
+		y.play();
+	}
+	gameover();
 }
 
 function emptySquares() {
@@ -138,3 +154,6 @@ function minimax(newBoard, player) {
 
 	return moves[bestMove];
 }
+function playAudio() { 
+	x.play(); 
+  } 
