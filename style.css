@@ -166,7 +166,7 @@ button:hover{
 }
 
 .helo {
-  font-weight: 200;
+  font-weight: 500;
   color: black;
   display: flex;
     flex-direction: column-reverse;
