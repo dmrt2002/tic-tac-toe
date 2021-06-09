@@ -4,8 +4,11 @@ const aiPlayer = 'X';
 var x = document.getElementById("myAudio"); 
 var y = document.getElementById("myAudio1"); 
 var z = document.getElementById("myAudio2");
-var button = document.querySelector("#button")
-
+var button = document.querySelector("#button");
+var score1 = document.querySelector(".score1");
+var score2 = document.querySelector(".score2");
+var score3 = document.querySelector(".score3");
+var message = document.querySelector(".endgame .text");
 
 const winCombos = [
 	[0, 1, 2],
@@ -18,27 +21,74 @@ const winCombos = [
 	[6, 4, 2]
 ]
 
+function initialisation(){
+	score1 = 0;
+	score2 = 0;
+	score3 = 0;
+}
+
+initialisation();
+
 
 const cells = document.querySelectorAll('.cell');
 startGame();
 
 function startGame() {
-	if( button.innerText === "OFF"){
-		function Restart(){
-			z.play();
+	if(message.innerText === "You lose!"){
+		score3 += 1;
+		document.querySelector("#s3").innerHTML = score3;
+		if( button.innerText === "OFF"){
+			function Restart(){
+				z.play();
+			}
+			Restart();
+		} else {
+			z.muted = true;
 		}
-		Restart();
+		document.querySelector(".endgame").style.display = "none";
+		origBoard = Array.from(Array(9).keys());
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].innerText = '';
+			cells[i].style.removeProperty('background-color');
+			cells[i].addEventListener('click', turnClick, false);
+		}
+	} else if(message.innerText === "Tie Game!") {
+		score2 += 1;
+		document.querySelector("#s2").innerHTML = score2;
+		if( button.innerText === "OFF"){
+			function Restart(){
+				z.play();
+			}
+			Restart();
+		} else {
+			z.muted = true;
+		}
+		document.querySelector(".endgame").style.display = "none";
+		origBoard = Array.from(Array(9).keys());
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].innerText = '';
+			cells[i].style.removeProperty('background-color');
+			cells[i].addEventListener('click', turnClick, false);
+		}
 	} else {
-		z.muted = true;
+		if( button.innerText === "OFF"){
+			function Restart(){
+				z.play();
+			}
+			Restart();
+		} else {
+			z.muted = true;
+		}
+		document.querySelector(".endgame").style.display = "none";
+		origBoard = Array.from(Array(9).keys());
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].innerText = '';
+			cells[i].style.removeProperty('background-color');
+			cells[i].addEventListener('click', turnClick, false);
+		}
 	}
-	document.querySelector(".endgame").style.display = "none";
-	origBoard = Array.from(Array(9).keys());
-	for (var i = 0; i < cells.length; i++) {
-		cells[i].innerText = '';
-		cells[i].style.removeProperty('background-color');
-		cells[i].addEventListener('click', turnClick, false);
 	}
-}
+	
 
 function turnClick(square) {
 	if (typeof origBoard[square.target.id] == 'number') {
@@ -76,11 +126,12 @@ function gameOver(gameWon) {
 		cells[i].removeEventListener('click', turnClick, false);
 	}
 	declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose!");
+	var winner = gameWon.player;
 }
 
 function declareWinner(who) {
 	document.querySelector(".endgame").style.display = "block";
-	document.querySelector(".endgame .text").innerText = who;
+	message.innerText = who;
 	if( button.innerText === "OFF"){
 		function gameover(){
 			y.play();
@@ -109,6 +160,10 @@ function checkTie() {
 		return true;
 	}
 	return false;
+}
+
+function tiescore() {
+	score2.innerText += 1;
 }
 
 function minimax(newBoard, player) {
@@ -189,4 +244,5 @@ function playAudio() {
 		x.muted = true;
 	}
   } 
+
 
