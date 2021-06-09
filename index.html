@@ -14,11 +14,18 @@
 </head>
 
 <body>
+	
+	<div class="playpause text-center mute">
+		<div style="color : white" class="helo">Music</div>
+		<button class="btn btn-primary helo"id="button" onclick="playpause()">OFF</button>
+	</div>
+
+
 	<audio id="myAudio">
 		<source src="alert1.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
     </audio>
-	
+
 	<audio id="myAudio1">
 		<source src="gameover.wav" type="audio/mpeg">
 		Your browser does not support the audio element.
@@ -31,7 +38,7 @@
 
       <br>
 	<div class="area">TIC TAC TOE</div>
-      <br>
+      <br><br><br><br>
 	<table style="align-content: center;">
 		<tr>
 			<td class="cell"onclick="playAudio()" id="0"></td>
@@ -53,6 +60,13 @@
 		<div class="text"></div>
 		<button onClick="startGame()">Replay</button>
 	</div>
+	<br>
+	<br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+	
+	
+
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
@@ -61,5 +75,8 @@
   
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+	
+
 </body>
 </html>
