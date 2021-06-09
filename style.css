@@ -166,8 +166,12 @@ button:hover{
 }
 
 .helo {
-  font-weight: 500;
+  font-weight: 200;
   color: black;
   display: flex;
     flex-direction: column-reverse;
+}
+
+.scores {
+  color: black;
 }
