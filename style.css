@@ -96,7 +96,7 @@ table tr td:last-child {
 .endgame {
   display: none;
   width: 100vw;
-  height: 100vh;
+  height: 220vh;
   background-color: rgba(0,0,0, 0.8);
   position: fixed;
   text-align: center;
@@ -123,7 +123,51 @@ button:hover{
     border-color: white;
 }
 
+.mute {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  right: 35px;
+  top: 15px;
+  opacity: .5;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity .1s;
+  -moz-transition: opacity .1s;
+  transition: opacity .1s;
+}
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+*, *:before, *:after {
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
 
+@media only screen and (max-width: 960px) {
+  .helo {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.btn {
+  padding-top: auto;
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 3px;
+}
+
+@media only screen and (max-width: 280px) {
+  .playpause {
+    position: fixed;
+    top: 586px;
+    right: 20px;
+    left: 20px;
+  }
+}
 
 
 
