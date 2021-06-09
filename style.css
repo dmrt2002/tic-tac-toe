@@ -18,6 +18,7 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   text-align: center;
+  padding-right: 40px;
   font-size: 3em;
   color: rgb(19, 18, 18);
   letter-spacing: .25px;
@@ -146,12 +147,7 @@ button:hover{
   box-sizing: inherit;
 }
 
-@media only screen and (max-width: 960px) {
-  .helo {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}
+
 
 .btn {
   padding-top: auto;
@@ -169,6 +165,9 @@ button:hover{
   }
 }
 
-
-
-
+.helo {
+  font-weight: 200;
+  color: black;
+  display: flex;
+    flex-direction: column-reverse;
+}
