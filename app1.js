@@ -3,7 +3,10 @@ const huPlayer = 'O';
 const aiPlayer = 'X';
 var x = document.getElementById("myAudio"); 
 var y = document.getElementById("myAudio1"); 
-var z = document.getElementById("myAudio2"); 
+var z = document.getElementById("myAudio2");
+var button = document.querySelector("#button")
+
+
 const winCombos = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -15,14 +18,19 @@ const winCombos = [
 	[6, 4, 2]
 ]
 
-function restart(){
-	z.play();
-}
+
 const cells = document.querySelectorAll('.cell');
 startGame();
 
 function startGame() {
-	restart();
+	if( button.innerText === "OFF"){
+		function Restart(){
+			z.play();
+		}
+		Restart();
+	} else {
+		z.muted = true;
+	}
 	document.querySelector(".endgame").style.display = "none";
 	origBoard = Array.from(Array(9).keys());
 	for (var i = 0; i < cells.length; i++) {
@@ -42,11 +50,6 @@ function turnClick(square) {
 function turn(squareId, player) {
 	origBoard[squareId] = player;
 	document.getElementById(squareId).innerText = player;
-	/*if(player === huPlayer){
-		document.getElementById(squareId).style.color = "green";
-	}else{
-		document.getElementById(squareId).style.color = "red";
-	}*/
 	let gameWon = checkWin(origBoard, player)
 	if (gameWon) gameOver(gameWon)
 }
@@ -78,10 +81,14 @@ function gameOver(gameWon) {
 function declareWinner(who) {
 	document.querySelector(".endgame").style.display = "block";
 	document.querySelector(".endgame .text").innerText = who;
-	function gameover(){
-		y.play();
+	if( button.innerText === "OFF"){
+		function gameover(){
+			y.play();
+		}
+		gameover();
+	} else {
+		y.muted = true;
 	}
-	gameover();
 }
 
 function emptySquares() {
@@ -154,6 +161,32 @@ function minimax(newBoard, player) {
 
 	return moves[bestMove];
 }
+
+
+
+function playpause() {
+	if(button.innerText === "OFF"){
+		x.muted = true;
+		y.muted = true;
+		z.muted = true;
+		button.innerText = "ON"
+	} else if(button.innerText === "ON") {
+		button.innerText = "OFF";
+		repeat();
+	}
+}
+
+function repeat(){
+	x.muted = false;
+	y.muted = false;
+	z.muted = false;
+}
+
 function playAudio() { 
-	x.play(); 
+	if(button.innerText === "OFF"){
+		x.play();
+	} else if (button.innerText === "ON") {
+		x.muted = true;
+	}
   } 
+
