@@ -96,8 +96,8 @@ table tr td:last-child {
 
 .endgame {
   display: none;
-  width: 100vw;
-  height: 220vh;
+  width: 110vw;
+  height: 100vh;
   background-color: rgba(0,0,0, 0.8);
   position: fixed;
   text-align: center;
