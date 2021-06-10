@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=yes">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.1/velocity.min.js" integrity="sha512-B8rBxJnSysYy7PUVsPEgy/OG4EtWXj7oQS+0vkJc4dcO3qvlGFQYGf3toBt3NPDMxYT6OslKh0lf0pMxPeDt3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <title>Tic Tac Toe</title>
   <script src="app1.js" defer></script>
   <link rel="stylesheet" href="style.css">
@@ -14,11 +16,22 @@
 </head>
 
 <body>
+	 <!-- Page preloader -->
+	 <div id="hola">
+        <div id="preloader">
+        <span></span>
+        <span></span>
+          </div>
+            </div>
 
-	<div class="playpause text-center mute">
-		<div style="color : white" class="helo">Music</div>
-		<button class="btn btn-primary helo"id="button" onclick="playpause()">OFF</button>
-	</div>
+        <!-- Start content -->
+        <div class="page-wrap">
+            <div class="home">
+            <div class="text-wrap">
+	   <div class="playpause text-center mute">
+		   <div style="color : white" class="helo">Music</div>
+		   <button class="btn btn-primary helo"id="button" onclick="playpause()">OFF</button>
+	    </div>
 
 
 	<audio id="myAudio">
@@ -35,6 +48,7 @@
 		<source src="restart.wav" type="audio/mpeg">
 		Your browser does not support the audio element.
     </audio>
+
 
       <br>
 	<div class="area">TIC TAC TOE</div>
@@ -61,8 +75,8 @@
 		<button onClick="startGame()">Replay</button>
 	</div>
 	<br>
-	<br><br><br><br><br><br><br><br><br><br><br><br>
-	
+	<br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container scores">
 		<div class="row">
 			<div class="col">
@@ -79,10 +93,37 @@
 		  </div>
 		</div>
 	</div>
+	</div>
+	</div>
+	</div>
+
+	<script> 
+			$(window).load(function(){
+            setTimeout(function(){
+                $('#preloader').velocity({
+                    opacity : 0.1,
+                    translateY: "-80px"
+                }, {
+                    duration: 400,
+                    complete: function(){
+                    $('#hola').velocity({
+                    translateY : "-100%"
+                }, {
+                    duration: 1000,
+                    easing: [0.7,0,0.3,1],
+                    complete: function(){
+                        $('.home').addClass('animate-border divide');
+                    }
+                })  
+                    }
+                })
+            },1000)
+        });
+	
+	</script>
   
 	
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
 	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
