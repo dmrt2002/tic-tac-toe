@@ -2,7 +2,7 @@
 body {
   background: url(tic10.jpg) ;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   background-size: cover;
   font-family: Montserrat, sans-serif;
@@ -166,7 +166,7 @@ button:hover{
 }
 
 .helo {
-  font-weight: 200;
+  font-weight: 400;
   color: black;
   display: flex;
     flex-direction: column-reverse;
@@ -252,4 +252,17 @@ html {
   html{
     font-size: 86%;
   }
+}
+
+
+#footer {
+  background: rgba(109, 104, 104, 0.432);
+  font-family: Montserrat, sans-serif;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
